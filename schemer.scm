@@ -1,6 +1,17 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                              1. Toys
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 (define atom?
    (lambda (x)
      (and (not (pair? x)) (not (null? x)))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;               2. Do it, do it again, and again, and again... 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (define lat?
   (lambda (l)
@@ -15,6 +26,12 @@
       ((null? lat) #f)
       ((eq? a (car lat)) #t)
       (else (member? a (cdr lat))))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                         3. Cons the Magnificent
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (define rember
   (lambda (a lat)
@@ -45,7 +62,6 @@
       ((eq? (car lat) old)
             (cons new lat))
       (else (cons (car lat) (insertL new old (cdr lat)))))))
-
 
 (define subst
   (lambda (new old lat)
@@ -78,7 +94,6 @@
             (cons (car lat) (cons new (multiInsertR new old (cdr lat)))))
       (else (cons (car lat) (multiInsertR new old (cdr lat)))))))
 
-
 (define multiInsertL
   (lambda (new old lat)
     (cond
@@ -86,7 +101,6 @@
       ((eq? (car lat) old)
             (cons new (cons (car lat) (multiInsertL new old (cdr lat)))))
       (else (cons (car lat) (multiInsertL new old (cdr lat)))))))
-
 
 (define multiSubst
   (lambda (new old lat)
@@ -97,6 +111,9 @@
       (else (cons (car lat) (multiSubst new old (cdr lat)))))))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                         4. Numbers Games
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
