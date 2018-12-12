@@ -119,13 +119,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(define o+
+(define add
   (lambda (n m)
     (cond 
       ((zero? m) n)
       (else (o+ (add1 n) (sub1 m))))))
 
-(define o-
+(define sub
   (lambda (n m)
     (cond
       ((zero? m) n)
@@ -137,7 +137,11 @@
      ((null? tup) 0)
      (else (+ (car tup) (addtup (cdr tup)))))))
 
-
+(define mult
+  (lambda (n m)
+    (cond
+      ((zero? m) 0)
+      (else (+ n (mult n (sub1 m)))))))
 
 
 
