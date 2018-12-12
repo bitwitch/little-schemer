@@ -7,6 +7,9 @@
    (lambda (x)
      (and (not (pair? x)) (not (null? x)))))
 
+(define add1 (lambda (n) (+ n 1)))
+
+(define sub1 (lambda (n) (- n 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;               2. Do it, do it again, and again, and again... 
@@ -116,7 +119,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
+(define o+
+  (lambda (n m)
+    (cond 
+      ((zero? m) n)
+      (else (o+ (add1 n) (sub1 m))))))
 
 
 
