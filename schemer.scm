@@ -79,6 +79,15 @@
       (else (cons (car lat) (multiInsertR new old (cdr lat)))))))
 
 
+(define multiInsertL
+  (lambda (new old lat)
+    (cond
+      ((null? lat) '())
+      ((eq? (car lat) old)
+            (cons new (cons (car lat) (multiInsertL new old (cdr lat)))))
+      (else (cons (car lat) (multiInsertL new old (cdr lat)))))))
+
+
 
 
 
