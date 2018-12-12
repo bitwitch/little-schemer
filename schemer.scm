@@ -146,7 +146,8 @@
 (define tup+
   (lambda (t1 t2)
     (cond
-      ((and (null? t1) (null? t2)) '())
+      ((null? t1) t2)
+      ((null? t2) t1)
       (else (cons (add (car t1) (car t2))
                   (tup+ (cdr t1) (cdr t2)))))))
 
